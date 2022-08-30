@@ -1,6 +1,7 @@
 {
   "name": "vue-modular-architecture",
-  "version": "0.1.0",
+  "author": "Abdul Mohaimen Khalid",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
