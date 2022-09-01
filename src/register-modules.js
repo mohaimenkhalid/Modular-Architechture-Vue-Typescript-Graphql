@@ -2,13 +2,12 @@ import router from "./router";
 import store from "./store";
 
 const registerModule = (name, module) => {
-  console.log(module)
   if (module.store) {
     store.registerModule(name, module.store);
   }
 
   if (module.router) {
-    module.router(router);
+    router.addRoute(module.router);
   }
 };
 

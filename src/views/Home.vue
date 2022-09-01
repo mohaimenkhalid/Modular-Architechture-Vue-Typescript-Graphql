@@ -1,6 +1,7 @@
 <template>
   <div>
-    Home
+    Home Page
+    <router-link to="/product">test</router-link>
   </div>
 </template>
 
