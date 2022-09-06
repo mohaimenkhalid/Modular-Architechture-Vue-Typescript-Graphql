@@ -1,10 +1,17 @@
 <template>
   <div>
-    <router-link to="/product">Product Page</router-link>
+    <ul>
+      <li>
+        <router-link to="/product">Product Page</router-link>
+      </li>
+      <li>
+        <router-link to="/registration">Registration</router-link>
+      </li>
+    </ul>
     <br />
     <div>
       <div>
-        {{form}}
+        <h4>Login system</h4>
         <label>Email:</label><br />
         <input type="email" placeholder="email" v-model="form.username" />
       </div>

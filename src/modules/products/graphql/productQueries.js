@@ -11,7 +11,7 @@ export const CHARACTERS_QUERY = gql`
                 }
               }
             `
-export const LOGIN = gql`
+export const LOGIN_QUERY = gql`
               query login($loginInput: LoginInput!) {
                 login(loginInput: $loginInput) {
                   user {
@@ -19,6 +19,18 @@ export const LOGIN = gql`
                     name
                     email
                   }
+                  access_token
+                }
+              }
+            `
+
+export const REGISTER_QUERY = gql`
+              mutation signup($signupInput: SignupInput!) {
+                signup(signupInput: $signupInput) {
+                   _id
+                   name 
+                   email
+                   password
                 }
               }
             `

@@ -1,4 +1,5 @@
 import productPage from "@/modules/products/views/productPage";
+import Registration from "@/modules/products/views/registration";
 
 const moduleRoute = {
     path: "/product",
@@ -11,6 +12,10 @@ const moduleRoute = {
         {
             path: "/test",
             component: productPage
+        },
+        {
+            path: "/registration",
+            component: Registration
         }
     ]
 };

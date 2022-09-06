@@ -17,3 +17,12 @@ export const login = async (_, loginInput) => {
         console.log(e)
     }
 }
+
+export const register = async (_, formInput) => {
+    try {
+        const {mutate: registerUser} = await productService.register(formInput)
+        registerUser();
+    } catch (e) {
+        console.log(e)
+    }
+}
