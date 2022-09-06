@@ -26,3 +26,12 @@ export const register = async (_, formInput) => {
         console.log(e)
     }
 }
+
+export const getTaskList = async () => {
+    try {
+        const {result} = await productService.getTaskList()
+        console.log("task list", result)
+    } catch (e) {
+        console.log(e)
+    }
+}

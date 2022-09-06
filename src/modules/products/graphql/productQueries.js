@@ -11,6 +11,14 @@ export const CHARACTERS_QUERY = gql`
                 }
               }
             `
+export const TASK_LIST_QUERY = gql`
+              query Tasks {
+                  tasks {
+                    task
+                    status
+                  }
+              }
+            `
 export const LOGIN_QUERY = gql`
               query login($loginInput: LoginInput!) {
                 login(loginInput: $loginInput) {
