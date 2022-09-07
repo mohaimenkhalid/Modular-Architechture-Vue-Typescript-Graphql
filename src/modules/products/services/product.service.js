@@ -1,30 +1,38 @@
-import {useQuery, useMutation} from "@vue/apollo-composable";
-
 import {CHARACTERS_QUERY, LOGIN_QUERY, REGISTER_QUERY, TASK_LIST_QUERY} from "@/modules/products/graphql/productQueries";
+import graphqlClient from "@/utils/graphql";
 
-export function getAllPostsList() {
-    return useQuery(CHARACTERS_QUERY);
+export async function getAllPostsList() {
+    return await graphqlClient.query({
+        query: CHARACTERS_QUERY,
+    });
 }
 
-export function login(loginInput) {
-    return useQuery(LOGIN_QUERY, {loginInput: loginInput});
+export async function login(loginInput) {
+    return await graphqlClient.query({
+        query: LOGIN_QUERY,
+        variables: {loginInput: loginInput}
+    });
 }
 
-export function getTaskList() {
-    return useQuery(TASK_LIST_QUERY, {}, () => ({
-            context: {
-                headers: {
-                    authorization : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtoYWxpZEBnbWFpbC5jb20iLCJzdWIiOiI2MzE3MDg5ZDI1NGNmZTYzZjQ0NTFmY2UiLCJpYXQiOjE2NjI0NjUyNzgsImV4cCI6MTY2MjQ2ODg3OH0.0RvOwVlpqVsfydvsDV_nSsAupT3U3I_1aNfqb4YFf84'
-                }
+export async function getTaskList() {
+    return await graphqlClient.query({
+        query: TASK_LIST_QUERY,
+        context: {
+            headers: {
+                authorization : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtoYWxpZEBnbWFpbC5jb20iLCJzdWIiOiI2MzE3MDg5ZDI1NGNmZTYzZjQ0NTFmY2UiLCJpYXQiOjE2NjI1NzAyNzYsImV4cCI6MTY2MjU3Mzg3Nn0.YLP05Xu5lNMir6AgqMeVpw1qh5o-vUIa9c1MrFl3GDY'
             }
-        }));
+        }
+    });
 }
 
-export function register(signupInput) {
-    return useMutation(REGISTER_QUERY, () => ({
+export async function register(signupInput) {
+    return graphqlClient.mutate({
+        mutation: REGISTER_QUERY,
         variables: {signupInput: signupInput},
         update: (cache, { data: { signup } }) => {
-            console.log(signup)
-        }
-    }));
+            console.log("Can update cache Data from here")
+            console.log("signupData", signup)
+        },
+        ignoreResults: true //if we want to return data
+    });
 }

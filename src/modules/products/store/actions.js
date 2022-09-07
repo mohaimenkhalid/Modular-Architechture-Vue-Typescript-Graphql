@@ -1,9 +1,9 @@
 import * as productService from '@/modules/products/services/product.service'
 
-export const getPostList = async () => {
+export const getPostList =  async ({commit}) => {
     try {
-        const data = await productService.getAllPostsList()
-        console.log("aaaaa", data)
+        const response =  await productService.getAllPostsList()
+        console.log(response)
     } catch (e) {
         console.log(e)
     }
@@ -11,17 +11,17 @@ export const getPostList = async () => {
 
 export const login = async (_, loginInput) => {
     try {
-        const data = await productService.login(loginInput)
-        console.log("login", data)
+        const response = await productService.login(loginInput)
+        console.log("login", response)
     } catch (e) {
-        console.log(e)
+        console.log(e.message)
     }
 }
 
 export const register = async (_, formInput) => {
     try {
-        const {mutate: registerUser} = await productService.register(formInput)
-        registerUser();
+        const response = await productService.register(formInput)
+        console.log("signup", response)
     } catch (e) {
         console.log(e)
     }
@@ -29,8 +29,8 @@ export const register = async (_, formInput) => {
 
 export const getTaskList = async () => {
     try {
-        const {result} = await productService.getTaskList()
-        console.log("task list", result)
+        const response = await productService.getTaskList()
+        console.log("task list", response.data.tasks)
     } catch (e) {
         console.log(e)
     }

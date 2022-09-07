@@ -31,15 +31,14 @@
   export default {
     setup() {
       const form = reactive({username: '', password: ''})
-      const call = () =>{
-        console.log("call")
-       //store.dispatch("products/getPostList")
-      }
+      // const call = () =>{
+      //  store.dispatch("products/getPostList")
+      // }
 
       const login = () =>{
         store.dispatch("products/login", form)
       }
-    return {call, login, form}
+    return {login, form}
 
     }
 
