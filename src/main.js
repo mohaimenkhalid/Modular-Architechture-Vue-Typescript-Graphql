@@ -4,6 +4,7 @@ import router from "@/router";
 import store from "@/store";
 import { registerModules } from "./register-modules";
 import productsModule from "@/modules/products";
+import Error from "@/components/common/Error";
 
 // import { DefaultApolloClient, provideApolloClient } from '@vue/apollo-composable'
 // import { ApolloClient, InMemoryCache } from '@apollo/client/core'
@@ -33,4 +34,5 @@ registerModules({
 
 app.use(router);
 app.use(store);
+app.component('Error', Error);
 app.mount('#app')

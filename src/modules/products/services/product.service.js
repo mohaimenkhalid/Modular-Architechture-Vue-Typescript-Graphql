@@ -1,4 +1,9 @@
-import {CHARACTERS_QUERY, LOGIN_QUERY, REGISTER_QUERY, TASK_LIST_QUERY} from "@/modules/products/graphql/productQueries";
+import {
+    CHARACTERS_QUERY,
+    LOGIN_QUERY,
+    REGISTER_QUERY,
+    TASK_LIST_QUERY
+} from "@/modules/products/graphql/productQueries";
 import graphqlClient from "@/utils/graphql";
 
 export async function getAllPostsList() {
@@ -19,7 +24,7 @@ export async function getTaskList() {
         query: TASK_LIST_QUERY,
         context: {
             headers: {
-                authorization : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtoYWxpZEBnbWFpbC5jb20iLCJzdWIiOiI2MzE3MDg5ZDI1NGNmZTYzZjQ0NTFmY2UiLCJpYXQiOjE2NjI1NzAyNzYsImV4cCI6MTY2MjU3Mzg3Nn0.YLP05Xu5lNMir6AgqMeVpw1qh5o-vUIa9c1MrFl3GDY'
+                authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtoYWxpZEBnbWFpbC5jb20iLCJzdWIiOiI2MzE3MDg5ZDI1NGNmZTYzZjQ0NTFmY2UiLCJpYXQiOjE2NjI1NzAyNzYsImV4cCI6MTY2MjU3Mzg3Nn0.YLP05Xu5lNMir6AgqMeVpw1qh5o-vUIa9c1MrFl3GDY'
             }
         }
     });
@@ -29,7 +34,7 @@ export async function register(signupInput) {
     return graphqlClient.mutate({
         mutation: REGISTER_QUERY,
         variables: {signupInput: signupInput},
-        update: (cache, { data: { signup } }) => {
+        update: (cache, {data: {signup}}) => {
             console.log("Can update cache Data from here")
             console.log("signupData", signup)
         },
