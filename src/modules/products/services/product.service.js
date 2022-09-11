@@ -46,9 +46,9 @@ export async function createTask(formInput) {
     return graphqlClient.mutate({
         mutation: TASK_CREATE_QUERY,
         variables: {createTaskInput: formInput},
-        update: (cache, {data: {tasks}}) => {
+        update: (cache, {data: {createTask}}) => {
             console.log("Can update cache Data from here")
-            console.log("taskData", tasks)
+            console.log("cache taskData", createTask)
         },
         ignoreResults: true //if we want to return data
     });
