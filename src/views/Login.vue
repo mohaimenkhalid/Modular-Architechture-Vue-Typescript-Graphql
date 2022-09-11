@@ -7,6 +7,9 @@
       <li>
         <router-link to="/registration">Registration</router-link>
       </li>
+      <li>
+        <router-link to="/task-list">Task List</router-link>
+      </li>
     </ul>
     <br />
     <div>

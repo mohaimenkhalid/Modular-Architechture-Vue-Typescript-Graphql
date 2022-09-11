@@ -2,7 +2,7 @@
   <h1>Registration</h1>
   <div>
     <div>
-      {{ form }}
+      {{ form }} <br />
       <label>Name:</label><br />
       <input type="text" placeholder="name" v-model="form.name" />
     </div>

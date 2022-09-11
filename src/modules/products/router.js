@@ -1,6 +1,7 @@
 import productPage from "@/modules/products/views/productPage";
 import Registration from "@/modules/products/views/registration";
 import taskListPage from "@/modules/products/views/taskListPage";
+import taskCreate from "@/modules/products/views/taskCreate";
 
 const moduleRoute = {
     path: "/product",
@@ -21,6 +22,10 @@ const moduleRoute = {
         {
             path: "/task-list",
             component: taskListPage
+        },
+        {
+            path: "/task-create",
+            component: taskCreate
         }
     ]
 };

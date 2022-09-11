@@ -1,7 +1,7 @@
 import {
     CHARACTERS_QUERY,
     LOGIN_QUERY,
-    REGISTER_QUERY,
+    REGISTER_QUERY, TASK_CREATE_QUERY,
     TASK_LIST_QUERY
 } from "@/modules/products/graphql/productQueries";
 import graphqlClient from "@/utils/graphql";
@@ -24,7 +24,7 @@ export async function getTaskList() {
         query: TASK_LIST_QUERY,
         context: {
             headers: {
-                authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtoYWxpZEBnbWFpbC5jb20iLCJzdWIiOiI2MzE3MDg5ZDI1NGNmZTYzZjQ0NTFmY2UiLCJpYXQiOjE2NjI4NzgwMDEsImV4cCI6MTY2Mjg4MTYwMX0.vryGoLUFgRn-GCR4t_bUv0GZCbxn6RvPZL4yirPXnYo'
+                authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAZ21haWwuY29tIiwic3ViIjoiNjMxZDlmM2M2NmM0MTliZDU4NWQ3YTE5IiwiaWF0IjoxNjYyODkyMTkxLCJleHAiOjE2NjI4OTU3OTF9.o9mHS3Qz4Q0I_kS-BqcRYE60zZKYWkRkj7l4_wheiUs'
             }
         }
     });
@@ -37,6 +37,24 @@ export async function register(signupInput) {
         update: (cache, {data: {signup}}) => {
             console.log("Can update cache Data from here")
             console.log("signupData", signup)
+        },
+        ignoreResults: true //if we want to return data
+    });
+}
+
+export async function createTaskInput(formInput) {
+
+    return graphqlClient.mutate({
+        mutation: TASK_CREATE_QUERY,
+        context: {
+            headers: {
+                authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAZ21haWwuY29tIiwic3ViIjoiNjMxZDlmM2M2NmM0MTliZDU4NWQ3YTE5IiwiaWF0IjoxNjYyODkyMTkxLCJleHAiOjE2NjI4OTU3OTF9.o9mHS3Qz4Q0I_kS-BqcRYE60zZKYWkRkj7l4_wheiUs'
+            }
+        },
+        variables: {createTaskInput: formInput},
+        update: (cache, {data: {tasks}}) => {
+            console.log("Can update cache Data from here")
+            console.log("taskData", tasks)
         },
         ignoreResults: true //if we want to return data
     });

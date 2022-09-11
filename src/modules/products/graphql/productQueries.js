@@ -42,3 +42,12 @@ export const REGISTER_QUERY = gql`
                 }
               }
             `
+
+export const TASK_CREATE_QUERY = gql`
+              mutation createTask($createTaskInput: CreateTaskInput!) {
+                  createTask(createTaskInput: $createTaskInput) {
+                   task 
+                   status
+                }
+              }
+            `

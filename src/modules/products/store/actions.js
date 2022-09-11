@@ -36,3 +36,12 @@ export const getTaskList = async ({commit}) => {
         console.log(e)
     }
 }
+
+export const createTask = async (_, formInput) => {
+    try {
+        const response = await productService.createTaskInput(formInput)
+        console.log("createTaskInput", response)
+    } catch (e) {
+        console.log(e)
+    }
+}

@@ -1,6 +1,6 @@
 <template>
   <div>Task List</div>
-
+  <router-link to="/task-create">Create Task</router-link>
   <table>
     <thead>
       <th>SI</th>
