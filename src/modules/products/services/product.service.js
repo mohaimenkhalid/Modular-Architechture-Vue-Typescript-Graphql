@@ -4,7 +4,7 @@ import {
     REGISTER_QUERY, TASK_CREATE_QUERY,
     TASK_LIST_QUERY
 } from "@/modules/products/graphql/productQueries";
-import graphqlClient from "@/utils/graphql";
+import graphqlClient from "@/utils/graphql/graphql";
 
 export async function getAllPostsList() {
     return await graphqlClient.query({
@@ -22,11 +22,11 @@ export async function login(loginInput) {
 export async function getTaskList() {
     return await graphqlClient.query({
         query: TASK_LIST_QUERY,
-        context: {
-            headers: {
-                authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAZ21haWwuY29tIiwic3ViIjoiNjMxZDlmM2M2NmM0MTliZDU4NWQ3YTE5IiwiaWF0IjoxNjYyODkyMTkxLCJleHAiOjE2NjI4OTU3OTF9.o9mHS3Qz4Q0I_kS-BqcRYE60zZKYWkRkj7l4_wheiUs'
-            }
-        }
+        // context: {
+        //     headers: {
+        //         authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtoYWxpZEBnbWFpbC5jb20iLCJzdWIiOiI2MzE3MDg5ZDI1NGNmZTYzZjQ0NTFmY2UiLCJpYXQiOjE2NjI4ODYyNTcsImV4cCI6MTY2Mjg4OTg1N30.R_d8I50dgVg2a4bohnnEVJ0XYkEyei6740C6Nfe7gKw'
+        //     }
+        // }
     });
 }
 
@@ -42,15 +42,9 @@ export async function register(signupInput) {
     });
 }
 
-export async function createTaskInput(formInput) {
-
+export async function createTask(formInput) {
     return graphqlClient.mutate({
         mutation: TASK_CREATE_QUERY,
-        context: {
-            headers: {
-                authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAZ21haWwuY29tIiwic3ViIjoiNjMxZDlmM2M2NmM0MTliZDU4NWQ3YTE5IiwiaWF0IjoxNjYyODkyMTkxLCJleHAiOjE2NjI4OTU3OTF9.o9mHS3Qz4Q0I_kS-BqcRYE60zZKYWkRkj7l4_wheiUs'
-            }
-        },
         variables: {createTaskInput: formInput},
         update: (cache, {data: {tasks}}) => {
             console.log("Can update cache Data from here")

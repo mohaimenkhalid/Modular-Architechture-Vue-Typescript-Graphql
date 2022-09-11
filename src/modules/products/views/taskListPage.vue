@@ -1,28 +1,16 @@
 <template>
   <div>Task List</div>
   <router-link to="/task-create">Create Task</router-link>
-  <table>
-    <thead>
-      <th>SI</th>
-      <th>Task</th>
-      <th>Status</th>
-      <th>Action</th>
-    </thead>
-    <tbody>
-      <tr v-for="(task, index) in tasks">
-        <td>{{index+1}}</td>
-        <td>{{task.task}}</td>
-        <td>{{task.status}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <TaskList :tasks="tasks" />
 </template>
 
 <script>
 import store from "@/store";
 import {computed} from 'vue'
+import TaskList from "@/components/TaskList";
 
 export default {
+  components: {TaskList},
   setup() {
     const getTaskList = () =>{
       store.dispatch("products/getTaskList")
