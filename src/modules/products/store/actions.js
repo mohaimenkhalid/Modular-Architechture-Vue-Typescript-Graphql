@@ -13,7 +13,8 @@ export const getPostList =  async ({commit}) => {
 export const login = async (_, loginInput) => {
     try {
         const response = await productService.login(loginInput)
-        console.log("login", response)
+        console.log("login", response.data.login.access_token)
+        localStorage.setItem('token', response.data?.login?.access_token)
     } catch (e) {
         console.log(e.message)
     }
