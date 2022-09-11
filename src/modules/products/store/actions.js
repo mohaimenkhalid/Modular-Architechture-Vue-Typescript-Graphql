@@ -1,4 +1,5 @@
 import * as productService from '@/modules/products/services/product.service'
+import * as types from "./mutation-types";
 
 export const getPostList =  async ({commit}) => {
     try {
@@ -27,10 +28,10 @@ export const register = async (_, formInput) => {
     }
 }
 
-export const getTaskList = async () => {
+export const getTaskList = async ({commit}) => {
     try {
         const response = await productService.getTaskList()
-        console.log("task list", response.data.tasks)
+        commit(types.SET_TASK_LIST, response.data.tasks)
     } catch (e) {
         console.log(e)
     }

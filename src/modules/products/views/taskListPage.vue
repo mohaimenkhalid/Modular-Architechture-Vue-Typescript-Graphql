@@ -9,13 +9,18 @@
       <th>Action</th>
     </thead>
     <tbody>
-
+      <tr v-for="(task, index) in tasks">
+        <td>{{index+1}}</td>
+        <td>{{task.task}}</td>
+        <td>{{task.status}}</td>
+      </tr>
     </tbody>
   </table>
 </template>
 
 <script>
 import store from "@/store";
+import {computed} from 'vue'
 
 export default {
   setup() {
@@ -24,7 +29,7 @@ export default {
     }
     getTaskList();
     return {
-
+      tasks: computed(() => store.getters['products/getTaskList'])
     }
 
   }
