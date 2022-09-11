@@ -4,7 +4,7 @@ import {
     REGISTER_QUERY,
     TASK_LIST_QUERY
 } from "@/modules/products/graphql/productQueries";
-import graphqlClient from "@/utils/graphql";
+import graphqlClient from "@/utils/graphql/graphql";
 
 export async function getAllPostsList() {
     return await graphqlClient.query({
