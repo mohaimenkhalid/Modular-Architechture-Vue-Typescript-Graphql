@@ -46,3 +46,12 @@ export const createTask = async (_, formInput) => {
         console.log(e)
     }
 }
+
+export const deleteTask = async (_, taskId) => {
+    try {
+        const response = await productService.deleteTask(taskId)
+        console.log("deleteTask", response)
+    } catch (e) {
+        console.log(e)
+    }
+}

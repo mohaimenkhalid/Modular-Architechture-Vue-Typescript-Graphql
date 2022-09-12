@@ -14,6 +14,7 @@ export const CHARACTERS_QUERY = gql`
 export const TASK_LIST_QUERY = gql`
               query Tasks {
                   tasks {
+                    _id
                     task
                     status
                   }
@@ -46,6 +47,16 @@ export const REGISTER_QUERY = gql`
 export const TASK_CREATE_QUERY = gql`
               mutation createTask($createTaskInput: CreateTaskInput!) {
                   createTask(createTaskInput: $createTaskInput) {
+                   task 
+                   status
+                }
+              }
+            `
+
+export const TASK_DELETE_QUERY = gql`
+              mutation removeTask($removeTaskId: String!) {
+                  removeTask(id: $removeTaskId) {
+                   _id
                    task 
                    status
                 }

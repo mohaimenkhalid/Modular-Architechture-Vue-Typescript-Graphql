@@ -1,7 +1,7 @@
 import {
     CHARACTERS_QUERY,
     LOGIN_QUERY,
-    REGISTER_QUERY, TASK_CREATE_QUERY,
+    REGISTER_QUERY, TASK_CREATE_QUERY, TASK_DELETE_QUERY,
     TASK_LIST_QUERY
 } from "@/modules/products/graphql/productQueries";
 import graphqlClient from "@/utils/graphql/graphql";
@@ -49,6 +49,18 @@ export async function createTask(formInput) {
         update: (cache, {data: {createTask}}) => {
             console.log("Can update cache Data from here")
             console.log("cache taskData", createTask)
+        },
+        ignoreResults: true //if we want to return data
+    });
+}
+
+export async function deleteTask(taskId) {
+    return graphqlClient.mutate({
+        mutation: TASK_DELETE_QUERY,
+        variables: {removeTaskId: taskId},
+        update: (cache, {data: {removeTask}}) => {
+            console.log("Can update cache Data from here")
+            console.log("cache taskData", removeTask)
         },
         ignoreResults: true //if we want to return data
     });

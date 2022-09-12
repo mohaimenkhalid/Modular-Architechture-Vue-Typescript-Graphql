@@ -6,7 +6,6 @@
       <label>Task:</label><br />
       <input type="text" placeholder="task" v-model="v$.task.$model" />
       <Error v-if="v$.task.$errors.length" :message="v$.task.$errors[0].$message" />
-
     </div>
     <div>
       <label>Status:</label><br />
