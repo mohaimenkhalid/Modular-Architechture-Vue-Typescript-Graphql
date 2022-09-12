@@ -1,7 +1,7 @@
 import router from "./router";
 import store from "./store";
 
-const registerModule = (name, module) => {
+const registerModule = (name: string, module: any) => {
   if (module.store) {
     store.registerModule(name, module.store);
   }
@@ -11,7 +11,7 @@ const registerModule = (name, module) => {
   }
 };
 
-export const registerModules = modules => {
+export const registerModules = (modules: any) => {
   Object.keys(modules).forEach(moduleKey => {
     const module = modules[moduleKey];
     registerModule(moduleKey, module);

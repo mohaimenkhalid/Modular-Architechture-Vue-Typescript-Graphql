@@ -1,10 +1,10 @@
 import * as types from "./mutation-types";
 
 export default {
-  [types.ADD_ITEM](state, item) {
+  [types.ADD_ITEM](state:any, item: any) {
     console.log(item)
   },
-  [types.SET_TASK_LIST](state, tasks) {
+  [types.SET_TASK_LIST](state:any, tasks: any) {
     state.tasks = tasks
   },
 

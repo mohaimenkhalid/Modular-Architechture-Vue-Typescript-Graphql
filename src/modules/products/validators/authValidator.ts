@@ -1,7 +1,7 @@
 import {helpers, email, required} from "@vuelidate/validators";
 import useVuelidate from "@vuelidate/core";
 
-const authValidator = (loginForm) => {
+const authValidator = (loginForm: object) => {
     const rules = {
         username: {
             required: helpers.withMessage("username is required", required),
@@ -12,6 +12,7 @@ const authValidator = (loginForm) => {
             required: helpers.withMessage("Password is required", required),
         }
     }
+    // @ts-ignore
     const v$ = useVuelidate(rules, loginForm)
     return {v$}
 }

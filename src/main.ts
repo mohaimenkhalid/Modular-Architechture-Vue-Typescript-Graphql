@@ -4,7 +4,7 @@ import router from "@/router";
 import store from "@/store";
 import { registerModules } from "./register-modules";
 import productsModule from "@/modules/products";
-import Error from "@/components/common/Error";
+import Error from "@/components/common/Error.vue";
 
 // import { DefaultApolloClient, provideApolloClient } from '@vue/apollo-composable'
 // import { ApolloClient, InMemoryCache } from '@apollo/client/core'

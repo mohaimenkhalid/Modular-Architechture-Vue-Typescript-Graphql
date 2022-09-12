@@ -41,7 +41,8 @@
       //  store.dispatch("products/getPostList")
       // }
       const {v$} = authValidator(form)
-      const login = () =>{
+      const login = () => {
+        console.log(form)
         store.dispatch("products/login", form)
       }
     return {login, form, v$}

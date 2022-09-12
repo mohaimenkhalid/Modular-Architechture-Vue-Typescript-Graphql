@@ -4,6 +4,7 @@ import {
     REGISTER_QUERY, TASK_CREATE_QUERY,
     TASK_LIST_QUERY
 } from "@/modules/products/graphql/productQueries";
+import {ApolloQueryResult} from "@apollo/client";
 import graphqlClient from "@/utils/graphql/graphql";
 
 export async function getAllPostsList() {
@@ -12,7 +13,7 @@ export async function getAllPostsList() {
     });
 }
 
-export async function login(loginInput) {
+export async function login(loginInput: object) {
     return await graphqlClient.query({
         query: LOGIN_QUERY,
         variables: {loginInput: loginInput}
@@ -30,7 +31,7 @@ export async function getTaskList() {
     });
 }
 
-export async function register(signupInput) {
+export async function register(signupInput: object) {
     return graphqlClient.mutate({
         mutation: REGISTER_QUERY,
         variables: {signupInput: signupInput},
@@ -38,11 +39,13 @@ export async function register(signupInput) {
             console.log("Can update cache Data from here")
             console.log("signupData", signup)
         },
+        // @ts-ignore
         ignoreResults: true //if we want to return data
     });
 }
 
-export async function createTask(formInput) {
+export function createTask(formInput: object): object {
+
     return graphqlClient.mutate({
         mutation: TASK_CREATE_QUERY,
         variables: {createTaskInput: formInput},
@@ -50,6 +53,7 @@ export async function createTask(formInput) {
             console.log("Can update cache Data from here")
             console.log("cache taskData", createTask)
         },
+        // @ts-ignore
         ignoreResults: true //if we want to return data
     });
 }

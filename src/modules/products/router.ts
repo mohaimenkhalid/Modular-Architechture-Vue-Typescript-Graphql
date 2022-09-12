@@ -1,9 +1,10 @@
-import productPage from "@/modules/products/views/productPage";
-import Registration from "@/modules/products/views/registration";
-import taskListPage from "@/modules/products/views/taskListPage";
-import taskCreate from "@/modules/products/views/taskCreate";
+import { RouteRecordRaw } from 'vue-router';
+import productPage from "@/modules/products/views/productPage.vue";
+import Registration from "@/modules/products/views/registration.vue";
+import taskListPage from "@/modules/products/views/taskListPage.vue";
+import taskCreate from "@/modules/products/views/taskCreate.vue";
 
-const moduleRoute = {
+const moduleRoute = <RouteRecordRaw>{
     path: "/product",
     component: productPage,
     children: [

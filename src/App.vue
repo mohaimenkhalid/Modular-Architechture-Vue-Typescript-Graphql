@@ -2,18 +2,16 @@
   <router-view></router-view>
 </template>
 
-<script>
+<script lang="ts">
+import {defineComponent} from "vue";
+import HelloWorld from './components/HelloWorld.vue';
 
-import store from "@/store";
-
-export default {
-  name: 'App',
+export default defineComponent({
+  Name: 'App',
   components: {
+    HelloWorld,
   },
-  mounted() {
-
-  }
-}
+})
 </script>
 
 <style>
