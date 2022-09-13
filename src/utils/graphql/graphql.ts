@@ -1,7 +1,5 @@
 import { ApolloClient, InMemoryCache, concat, createHttpLink } from '@apollo/client/core'
 
-
-
 const httpLink = createHttpLink({ uri: 'http://localhost:3000/graphql' });
 
 import authMiddleware from "@/utils/graphql/authMiddleware";

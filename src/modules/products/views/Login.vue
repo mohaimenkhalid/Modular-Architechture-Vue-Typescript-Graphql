@@ -29,25 +29,22 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
   import store from "@/store";
   import {reactive} from "vue";
+  import { defineComponent } from 'vue'
   import authValidator from "@/modules/products/validators/authValidator";
+  import {LoginForm} from '@/modules/products/interfaces/authTypes'
 
-  export default {
+  export default defineComponent({
     setup() {
-      const form = reactive({username: '', password: ''})
-      // const call = () =>{
-      //  store.dispatch("products/getPostList")
-      // }
+      const form = reactive<LoginForm>({username: '', password: ''})
       const {v$} = authValidator(form)
       const login = () => {
-        console.log(form)
         store.dispatch("products/login", form)
       }
-    return {login, form, v$}
-
+      return {login, form, v$}
     }
 
-  }
+  })
 </script>

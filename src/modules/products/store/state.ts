@@ -1,4 +1,10 @@
-export default () => ({
+// export default () => ({
+//   items: [],
+//   tasks: [],
+// });
+import {StateType} from "@/modules/products/interfaces/vuex";
+export const state = <StateType>{
   items: [],
-  tasks: [],
-});
+  tasks: []
+}
+export type State = typeof state
