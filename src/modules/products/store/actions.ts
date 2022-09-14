@@ -1,9 +1,8 @@
-import * as productService from '@/modules/products/services/product.service'
 import {ActionTree} from 'vuex'
+import * as productService from '@/modules/products/services/product.service'
+import {Actions} from "@/modules/products/interfaces/vuex/Actions";
 import {State} from './state'
 import * as MutationTypes from "./mutation-types";
-import {Actions} from "@/modules/products/interfaces/vuex";
-
 
 export const actions: ActionTree<State, State> & Actions = {
     async login({commit}, loginInput) {
@@ -42,14 +41,14 @@ export const actions: ActionTree<State, State> & Actions = {
 }
 
 
-export const getPostList = async () => {
-    try {
-        const response = await productService.getAllPostsList()
-        console.log(response)
-    } catch (e) {
-        console.log(e)
-    }
-}
+// export const getPostList = async () => {
+//     try {
+//         const response = await productService.getAllPostsList()
+//         console.log(response)
+//     } catch (e) {
+//         console.log(e)
+//     }
+// }
 
 // export const login = async ({commit}: any, loginInput: LoginForm) => {
 //     console.log(loginInput)

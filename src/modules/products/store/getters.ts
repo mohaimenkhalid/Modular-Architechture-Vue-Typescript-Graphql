@@ -1,2 +1,8 @@
-export const getItem = (state: any) => state.items;
-export const getTaskList = (state: any) => state.tasks;
+import { GetterTree } from 'vuex'
+import { State } from './state'
+import {Getters} from "@/modules/products/interfaces/vuex/Getters";
+
+export const getters: GetterTree<State, State> & Getters = {
+    getItem: (state) =>  state.items,
+    getTaskList: (state) =>  state.tasks
+}
