@@ -9,10 +9,10 @@ export type Mutations<S = State> = {
 }
 
 export const mutations: MutationTree<State> & Mutations = {
-  [MutationTypes.SET_TASK_LIST](state, payload: []) {
+  [MutationTypes.SET_TASK_LIST](state, payload) {
     state.tasks = payload
   },
-  [MutationTypes.ADD_ITEM](state, payload: []) {
+  [MutationTypes.ADD_ITEM](state, payload) {
     state.items = payload
   },
 }
