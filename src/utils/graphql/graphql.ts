@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, concat, createHttpLink } from '@apollo/client/core'
 
-const httpLink = createHttpLink({ uri: 'http://localhost:3000/graphql' });
+const httpLink = createHttpLink({ uri: process.env.VUE_APP_API_BASE_URL });
 
 import authMiddleware from "@/utils/graphql/authMiddleware";
 
